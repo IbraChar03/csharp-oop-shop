@@ -11,9 +11,7 @@ namespace csharp_oop_shop
     internal class Prodotto
     {
         private int codice;
-        //private string nome;
-        //private string descrizione;
-        //private int prezzo;
+       
         public string GetCodice()
         {
             Random rnd = new Random(); codice = rnd.Next(1, 99999999);
@@ -54,8 +52,6 @@ namespace csharp_oop_shop
             this.prezzo = prezzo;
             this.iva = iva;
         }
-
-
 
     }
 }
