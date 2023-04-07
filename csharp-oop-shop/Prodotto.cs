@@ -19,11 +19,9 @@ namespace csharp_oop_shop
             if (left < 8)
             {
                string codiceNuovo =  codice.ToString().PadLeft(8, '0');
-                string parola = codice.ToString();
-                Console.WriteLine(parola.PadLeft(8,'0'));
-                Console.WriteLine(codice.ToString());
-                return codiceNuovo;
               
+               return codiceNuovo;
+             
             }
             else
             return codice.ToString();
@@ -39,10 +37,14 @@ namespace csharp_oop_shop
         }
         public double PrezzoIva()
         {
-            return prezzo * iva;
+            double prezzoiva = prezzo * iva;
+                
+            return  Math.Round(prezzoiva, 2);
         }
         public string NomeCompleto()
+
         {
+
             return  GetCodice() + nome;
         }
         public Prodotto(string nome, string descrizione, double prezzo, double iva)
