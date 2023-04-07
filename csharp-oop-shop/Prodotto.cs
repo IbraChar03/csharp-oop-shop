@@ -14,16 +14,7 @@ namespace csharp_oop_shop
        
         public string GetCodice()
         {
-            Random rnd = new Random(); codice = rnd.Next(1, 99999999);
-            int left = (int) Math.Floor(Math.Log10(codice) + 1);
-            if (left < 8)
-            {
-               string codiceNuovo =  codice.ToString().PadLeft(8, '0');
-              
-               return codiceNuovo;
-             
-            }
-            else
+           
             return codice.ToString();
         }
         public double prezzo { set; get; }
@@ -53,6 +44,17 @@ namespace csharp_oop_shop
             this.descrizione = descrizione;
             this.prezzo = prezzo;
             this.iva = iva;
+            Random rnd = new Random(); int codiceRandom = rnd.Next(1, 99999999);
+            int left = (int)Math.Floor(Math.Log10(codice) + 1);
+            if (left < 8)
+            {
+                string codiceNuovo = codiceRandom.ToString().PadLeft(8, '0');
+               int codiceInt = Int32.Parse(codiceNuovo);
+                this.codice = codiceInt;
+
+            }
+            else
+                this.codice = codiceRandom;
         }
 
     }
