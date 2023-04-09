@@ -10,7 +10,7 @@ namespace csharp_oop_shop
 {
     internal class Prodotto
     {
-        private int codice;
+        private string codice;
        
         public string GetCodice()
         {
@@ -38,6 +38,18 @@ namespace csharp_oop_shop
 
             return  GetCodice() + nome;
         }
+        public void setCodice()
+        {
+            //int codice = Int32.Parse(this.codice);
+            int left = (int)Math.Floor(Math.Log10(Int32.Parse(this.codice)) + 1);
+            if (left < 8)
+            {
+                string codiceNuovo = this.codice.ToString().PadLeft(8, '0');
+                 this.codice = codiceNuovo;
+
+            }
+         
+        }
         public Prodotto(string nome, string descrizione, double prezzo, double iva)
         {
             this.nome = nome;
@@ -45,16 +57,8 @@ namespace csharp_oop_shop
             this.prezzo = prezzo;
             this.iva = iva;
             Random rnd = new Random(); int codiceRandom = rnd.Next(1, 99999999);
-            int left = (int)Math.Floor(Math.Log10(codice) + 1);
-            if (left < 8)
-            {
-                string codiceNuovo = codiceRandom.ToString().PadLeft(8, '0');
-               int codiceInt = Int32.Parse(codiceNuovo);
-                this.codice = codiceInt;
+            this.codice = codiceRandom.ToString();
 
-            }
-            else
-                this.codice = codiceRandom;
         }
 
     }
